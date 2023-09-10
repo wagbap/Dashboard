@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://cdn.syncfusion.com/ej2/20.1.55/bootstrap5-dark.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" href="Expense_Tracker.styles.css" />
+    <script src="https://cdn.syncfusion.com/ej2/20.1.55/dist/ej2.min.js"></script>
+</head>
+
+<body class="e-bigger">
+
+    <!-- Sidebar -->
+    <ejs-sidebar id="sidebar" width="290px" enableDock dockSize="100px" target=".dock-target" enableGestures="false">
+        <e-content-template>
+            <div class="logo-wrapper">
+                <div class="app-logo">
+                    <img src="logo.png" alt="Company Logo" />
+                </div>
+                <div class="w-100"></div>
+                <i id="sidebar-toggler" class="fa-solid"></i>
+            </div>
+
+            <div class="profile-wrapper">
+                <img class="profile-pic" src="profile.jpg" alt="Profile Picture of Ashton Cox" />
+                <div class="titles d-flex flex-column ps-3">
+                    <h6 class="mb-0">Wallet App</h6>
+                    <span class="text-muted">Ashton Cox</span>
+                </div>
+            </div>
+
+            <!-- Menu Items -->
+            <ejs-menu id="menu" orientation="Vertical" hamburgerMode>
+                <div class="menu-item">
+                    <span>General</span>
+                    <hr>
+                </div>
+                <div class="menu-item">
+                    <i class="fa-solid fa-box"></i> Dashboard
+                </div>
+                <div class="menu-item">
+                    <i class="fa-solid fa-folder-closed"></i> Categories
+                </div>
+                <div class="menu-item">
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i> Transactions
+                </div>
+                <div class="menu-item">
+                    <span>Extras</span>
+                    <hr>
+                </div>
+                <div class="menu-item">
+                    <i class="fa-solid fa-chart-simple"></i> Reports
+                </div>
+                <div class="menu-item">
+                    <i class="fa-solid fa-gear"></i> Settings
+                </div>
+            </ejs-menu>
+        </e-content-template>
+    </ejs-sidebar>
+
+    <!-- Main Content -->
+    <div class="dock-target">
+        <nav class="navbar sticky-top">
+            <div class="container-fluid py-2 px-4">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <div>
+                    <i class="fa-solid fa-bell"></i>
+                    <i class="fa-solid fa-message"></i>
+                    <img class="profile-pic" src="profile.jpg" alt="Profile Pic" />
+                </div>
+            </div>
+        </nav>
+
+        <div class="main-content">
+            <!--Summary Widgets-->
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="d-flex flex-row widget summary income">
+                        <div class="d-flex flex-column justify-content-center p-5">
+                            <i class="fa-solid fa-dollar-sign fa-2xl"></i>
+                        </div>
+                        <div class="d-flex flex-column m-auto py-3">
+                            <span class="lead">Total Income</span>
+                            <h1 class="display-6 fw-bold"></h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="d-flex flex-row widget summary expense">
+                        <div class="d-flex flex-column justify-content-center p-5">
+                            <i class="fa-solid fa-dollar-sign fa-2xl"></i>
+                        </div>
+                        <div class="d-flex flex-column m-auto py-3">
+                            <span class="lead">Total Expense</span>
+                            <h1 class="display-6 fw-bold"></h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="d-flex flex-row widget summary balance">
+                        <div class="d-flex flex-column justify-content-center p-5">
+                            <i class="fa-solid fa-dollar-sign fa-2xl"></i>
+                        </div>
+                        <div class="d-flex flex-column m-auto py-3">
+                            <span class="lead">Balance</span>
+                            <h1 class="display-6 fw-bold"></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Doughnut and Spline Chart-->
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="widget chart">
+                        <div class="p-4">
+                            <h5 class="fw-bold">Expense By Category</h5>
+                        </div>
+                        <!-- The chart would go here -->
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="widget chart">
+                        <div class="p-4">
+                            <h5 class="fw-bold">Income vs Expense</h5>
+                        </div>
+                        <!-- The chart would go here -->
+                    </div>
+                </div>
+            </div>
+
+            <!--Recent Transactions and More-->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="widget">
+                        <div class="p-4">
+                            <h5 class="fw-bold">Recent Transactions</h5>
+                        </div>
+                        <div class="px-4 pb-4">
+                            <!-- The grid would go here -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="widget h-100">
+                        <div class="d-flex justify-content-center align-items-center h-100">
+                            <span><i class="fa-solid fa-plus fa-2xl"></i> Widget</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/site.js"></script>
+
+    <!-- Toggle Sidebar Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dockBar = document.getElementById('sidebar').ej2_instances[0];
+            document.getElementById('sidebar-toggler').onclick = function () {
+                dockBar.toggle();
+            };
+        });
+
+        let sidebar = new ej.navigations.Sidebar({ width: '290px' });
+        sidebar.appendTo('#sidebar');
+
+    </script>
+</body>
+
+</html>
